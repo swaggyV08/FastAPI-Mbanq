@@ -67,7 +67,7 @@ def build_user_dashboard(user: User, db: Session):
 @router.post("/login/email")
 def login_with_email(data: schemas.LoginEmail, db: Session = Depends(get_db)):
 
-    # ADMIN LOGIN
+    # Admin Login how
     if data.email == ADMIN_EMAIL and data.password == ADMIN_PASSWORD:
 
         users = db.query(User).all()
@@ -91,7 +91,7 @@ def login_with_email(data: schemas.LoginEmail, db: Session = Depends(get_db)):
         }
 
 
-    # USER LOGIN
+    # User Login
     user = db.query(User).filter(
         User.email == data.email,
         User.is_deleted == False
@@ -167,7 +167,7 @@ def verify_phone(data: schemas.OTPVerify, db: Session = Depends(get_db)):
             "status": "Active" if kyc_status == "VERIFIED" else "KYC incomplete"
         }
     }
-
+#with phone number the token is generated access token 
 
 #Passcode
 @router.post("/login/passcode")

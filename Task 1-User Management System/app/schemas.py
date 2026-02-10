@@ -17,7 +17,7 @@ class KYCStatus(str, Enum):
 
 
 
-# ADDRESS SCHEMAS
+# Address Schema 
 class AddressBase(BaseModel):
     door_number: str
     street_name: str
@@ -73,7 +73,7 @@ class PasscodeSchema(BaseModel):
         return passcode
 
 
-# USER REGISTRATION
+# User Registration
 class UserRegister(BaseModel):
     username: str
     date_of_birth: str  # DD-MM-YYYY
@@ -94,7 +94,7 @@ class UserRegister(BaseModel):
 
 
 
-# USER LOGIN
+# User Login
 class LoginEmail(BaseModel):
     email: EmailStr
     password: str
@@ -117,7 +117,7 @@ class LoginPasscode(BaseModel):
 
 
 
-# USER PROFILE RESPONSE
+# User Profile information
 class UserProfile(BaseModel):
     account_id: int
     account_holder: str
@@ -129,20 +129,20 @@ class UserProfile(BaseModel):
 
 
 
-# PASSWORD UPDATE
+# Password update by user only 
 class PasswordUpdate(BaseModel):
     old_password: str
     new_password: str = Field(..., min_length=8)
 
 
 
-# ADDRESS UPDATE
+# Adress by admin 
 class AddressUpdate(AddressBase):
     pass
 
 
 
-# KYC REQUEST
+# Kyc limits of the the adhaar and pincode
 
 class KYCRequest(BaseModel):
     aadhar_number: str = Field(
