@@ -1,4 +1,14 @@
-__pycache__/
-*.pyc
+# Virtual environments
+.venv/
 venv/
+
+# Python cache
+**/__pycache__/
+*.pyc
+
+# Environment files
 .env
+
+# OS / editor noise
+.vscode/
+.DS_Store
